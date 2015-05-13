@@ -1,0 +1,77 @@
+<div class="components-container row">
+	{{#if showLogo}}<div id="logo"></div>{{/if}}
+	<div class="col-xs-12 title">
+		{{i18n "lng_operations_login_sabadellMobile"}}</span>
+	</div>
+</div>
+ 
+{{#unless isProdEnvironment}}
+	<div class="components-container row origin-select smallMarginBottom">
+		<div class="col-xs-12">
+			{{> IDKSelectComponent components.users-select }}
+		</div>
+	</div>
+{{/unless}}
+
+<div class="components-container row origin-select form-separation">
+	<div class="col-xs-12">
+		{{> IDKSelectComponent components.origin-select }}
+	</div>
+</div>
+
+<div class="components-container row form-separation">
+	<div class="col-xs-12">
+		{{> IDKInputComponent components.user-input }}
+	</div>
+</div>
+
+<div class="components-container row form-separation">
+	<div class="col-xs-12">
+		{{> IDKInputPasswordComponent components.password-input-numeric }}
+	</div>
+</div>
+
+<div class="components-container row form-separation">
+	<div class="col-xs-12">
+		{{> IDKInputPasswordComponent components.password-input-alphanumeric }}
+	</div>
+</div>
+{{#if recoverPinDisabled}}
+<div class="components-container row">
+	<div id="lost-password" class="col-xs-12 lost-password">
+		<span> {{i18n "lng_operations_login_forgotPassword"}}</span>
+	</div>
+</div>
+{{/if}}
+{{#if userRemembered}}
+	<div class="components-container row largeMarginTop">
+		<div class="col-xs-12" id="forget-me">{{i18n 'lng_operations_login_userNotMe'}}</div>
+	</div>
+{{/if}}
+
+<div class="components-container row largeMarginTop">
+	<div class="col-xs-12">
+		{{> IDKSwitchComponent components.remember-me-switch }}
+	</div>
+</div>
+
+<div class="components-container row no-padding-top">
+	<div class="col-xs-12 login-button">
+		{{> IDKButtonComponent components.login-button }}
+	</div>
+</div>
+
+{{#unless userLoggedOnce}}
+	<div class="components-container row new-client">
+		<div id="new-client" class="col-xs-12">
+			{{i18n "lng_operations_login_sabadellMobileRegistration"}}
+		</div>
+	</div>
+{{/unless}}
+{{#if components.menuTabletFooter}}
+	<div class="components-container largeMarginTop menuTabletFooter">
+		<div class="col-xs-12">
+			{{> IDKIconGridComponent components.menuTabletFooter}}
+		</div>
+	</div>
+{{/if}}
